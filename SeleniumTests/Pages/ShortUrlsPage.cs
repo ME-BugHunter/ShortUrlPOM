@@ -12,7 +12,7 @@ namespace SeleniumTests.Pages
         public ShortUrlsPage(WebDriver driver): base(driver) { }
         public override string BaseUrl => "https://shorturl--mariaemanuilova.repl.co/urls";
         public IWebElement TableShortUrls => driver.FindElement(By.ClassName("urls"));
-        public IWebElement TopLeftCellLabel => driver.FindElement(By.CssSelector("th:nth-child(1)"));
+        public IWebElement TopLeftCellLabel => driver.FindElements(By.CssSelector("tr > th"))[0];
         public IWebElement MessageCannotGetUrl => driver.FindElement(By.CssSelector("body > pre"));
         public IWebElement TableFirstRow => driver.FindElements(By.CssSelector("tbody > tr")).First();
         public IWebElement TableFirstRowSecondCell => TableFirstRow.FindElements(By.CssSelector("td"))[1];

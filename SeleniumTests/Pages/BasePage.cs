@@ -17,16 +17,7 @@ namespace SeleniumTests.Pages
         }
 
         public virtual string BaseUrl { get; }
-        public IWebElement LinkHome => driver.FindElement(By.LinkText("Home"));
-        public IWebElement LinkAddUrl => driver.FindElement(By.LinkText("Add URL"));
-        public IWebElement LinkShortUrls => driver.FindElement(By.LinkText("Short URLs"));
-        public IWebElement ShortUrlsCount => driver.FindElement(By.XPath("//ul/li[1]/b"));
-        public IWebElement UrlVisitorsCount => driver.FindElement(By.XPath("//ul/li[2]/b"));
-        public IWebElement LabelPageHeading => driver.FindElement(By.TagName("h1"));
-        public IWebElement LabelShortUrls => driver.FindElement(By.CssSelector("body > main > ul > li:nth-child(1)"));
-        public IWebElement LabelUrlVisitors => driver.FindElement(By.CssSelector("body > main > ul > li:nth-child(2)"));
-
-
+        
         public void Open()
         {
             driver.Navigate().GoToUrl(BaseUrl);
@@ -47,24 +38,20 @@ namespace SeleniumTests.Pages
             return driver.Url == BaseUrl;
         }
 
-        public string getPageHeading()
+        
+        public void switchToFirstTab()
         {
-            return LabelPageHeading.Text;
+            driver.SwitchTo().Window(driver.WindowHandles[0]);
         }
 
-        public void openHomePage()
+        public void refreshPage()
         {
-            LinkHome.Click();
+            driver.Navigate().Refresh();
         }
 
-        public void openShortUrlsPage()
+        public void visitUrl(string url)
         {
-            LinkShortUrls.Click();
-        }
-
-        public void openAddUrlPage()
-        {
-            LinkAddUrl.Click();
+            driver.Navigate().GoToUrl(url);
         }
     }
 }

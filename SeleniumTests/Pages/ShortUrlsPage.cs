@@ -28,11 +28,7 @@ namespace SeleniumTests.Pages
             return TableShortUrls;
         }
 
-        public void visitUrl(string url)
-        {
-            driver.Navigate().GoToUrl(url);
-        }
-
+        
         public string getMessageCannotGetUrl()
         {
             return MessageCannotGetUrl.Text;
@@ -46,16 +42,6 @@ namespace SeleniumTests.Pages
         public string getTableFirstRowLastCellText()
         {
             return TableFirstRowLastCell.Text;
-        }
-
-        public void switchToFirstTab()
-        {
-            driver.SwitchTo().Window(driver.WindowHandles[0]);
-        }
-
-        public void refreshPage()
-        {
-            driver.Navigate().Refresh();
         }
     }
 }

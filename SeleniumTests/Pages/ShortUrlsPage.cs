@@ -12,16 +12,50 @@ namespace SeleniumTests.Pages
         public ShortUrlsPage(WebDriver driver): base(driver) { }
         public override string BaseUrl => "https://shorturl--mariaemanuilova.repl.co/urls";
         public IWebElement TableShortUrls => driver.FindElement(By.ClassName("urls"));
-        public IWebElement topLeftCellLabel => driver.FindElement(By.CssSelector("th:nth-child(1)"));
+        public IWebElement TopLeftCellLabel => driver.FindElement(By.CssSelector("th:nth-child(1)"));
+        public IWebElement MessageCannotGetUrl => driver.FindElement(By.CssSelector("body > pre"));
+        public IWebElement TableFirstRow => driver.FindElements(By.CssSelector("tbody > tr")).First();
+        public IWebElement TableFirstRowSecondCell => TableFirstRow.FindElements(By.CssSelector("td"))[1];
+        public IWebElement TableFirstRowLastCell => TableFirstRow.FindElements(By.CssSelector("td")).Last(); 
 
         public string getTopLeftCellLabel()
         {
-            return topLeftCellLabel.Text;
+            return TopLeftCellLabel.Text;
         }
 
         public object getShortUrlsTable()
         {
             return TableShortUrls;
+        }
+
+        public void visitUrl(string url)
+        {
+            driver.Navigate().GoToUrl(url);
+        }
+
+        public string getMessageCannotGetUrl()
+        {
+            return MessageCannotGetUrl.Text;
+        }
+
+        public void clickTableFirstRowSecondCell()
+        {
+            TableFirstRowSecondCell.Click();
+        }
+
+        public string getTableFirstRowLastCellText()
+        {
+            return TableFirstRowLastCell.Text;
+        }
+
+        public void switchToFirstTab()
+        {
+            driver.SwitchTo().Window(driver.WindowHandles[0]);
+        }
+
+        public void refreshPage()
+        {
+            driver.Navigate().Refresh();
         }
     }
 }

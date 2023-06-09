@@ -15,15 +15,9 @@ namespace SeleniumTests.Pages
         public IWebElement LinkAddUrl => driver.FindElement(By.LinkText("Add URL"));
         public IWebElement LinkShortUrls => driver.FindElement(By.LinkText("Short URLs"));
         public IWebElement ShortUrlsCount => driver.FindElement(By.XPath("//ul/li[1]/b"));
-        public IWebElement UrlVisitorsCount => driver.FindElement(By.XPath("//ul/li[2]/b"));
-        public IWebElement LabelPageHeading => driver.FindElement(By.TagName("h1"));
+        public IWebElement UrlVisitorsCount => driver.FindElement(By.XPath("//ul/li[2]/b")); 
         public IWebElement LabelShortUrls => driver.FindElement(By.CssSelector("body > main > ul > li:nth-child(1)"));
         public IWebElement LabelUrlVisitors => driver.FindElement(By.CssSelector("body > main > ul > li:nth-child(2)"));
-
-        public string getPageHeading()
-        {
-            return LabelPageHeading.Text;
-        }
 
         public void openHomePage()
         {

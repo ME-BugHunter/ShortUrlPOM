@@ -10,6 +10,7 @@ namespace SeleniumTests.Pages
     public class BasePage
     {
         protected readonly WebDriver driver;
+        public IWebElement LabelPageHeading => driver.FindElement(By.TagName("h1"));
 
         public BasePage(WebDriver driver)
         {
@@ -17,7 +18,12 @@ namespace SeleniumTests.Pages
         }
 
         public virtual string BaseUrl { get; }
-        
+
+        public string getPageHeading()
+        {
+            return LabelPageHeading.Text;
+        }
+
         public void Open()
         {
             driver.Navigate().GoToUrl(BaseUrl);

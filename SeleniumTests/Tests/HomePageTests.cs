@@ -47,7 +47,7 @@ namespace SeleniumTests.Tests
         [Test]
         public void Test_NavigateToAddUrl()
         {
-            page.openShortUrlsPage();
+            page.openAddUrlPage();
             Assert.That(page.GetUrl, Is.EqualTo("https://shorturl--mariaemanuilova.repl.co/add-url"));
         }
 

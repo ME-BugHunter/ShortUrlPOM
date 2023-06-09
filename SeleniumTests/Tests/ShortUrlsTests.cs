@@ -22,5 +22,27 @@ namespace SeleniumTests.Tests
         {
             Assert.That(page.getTopLeftCellLabel(), Is.EqualTo("Original URL"));
         }
+
+        [Test]
+        public void Test_TryVisitInvalidUrl()
+        {
+            string invalidUrl = "http://shorturl--mariaemanuilova.repl.co/invalid53652";
+            page.visitUrl(invalidUrl);
+
+            Assert.That(page.getMessageCannotGetUrl(), Is.EqualTo("Cannot GET /invalid53652"));
+        }
+
+        [Test]
+        public void Test_CheckShortUrlCounterIncrease()
+        {
+            int oldCounter = int.Parse(page.getTableFirstRowLastCellText());
+            page.clickTableFirstRowSecondCell();
+            page.switchToFirstTab();
+            page.refreshPage();
+
+            int newCounter = int.Parse(page.getTableFirstRowLastCellText());
+
+            Assert.That(newCounter, Is.EqualTo(oldCounter + 1));
+        }
     }
 }

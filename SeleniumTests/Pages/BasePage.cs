@@ -11,6 +11,9 @@ namespace SeleniumTests.Pages
     {
         protected readonly WebDriver driver;
         public IWebElement LabelPageHeading => driver.FindElement(By.TagName("h1"));
+        public IWebElement LinkHome => driver.FindElement(By.LinkText("Home"));
+        public IWebElement LinkAddUrl => driver.FindElement(By.LinkText("Add URL"));
+        public IWebElement LinkShortUrls => driver.FindElement(By.LinkText("Short URLs"));
 
         public BasePage(WebDriver driver)
         {
@@ -58,6 +61,21 @@ namespace SeleniumTests.Pages
         public void visitUrl(string url)
         {
             driver.Navigate().GoToUrl(url);
+        }
+
+        public void openHomePage()
+        {
+            LinkHome.Click();
+        }
+
+        public void openShortUrlsPage()
+        {
+            LinkShortUrls.Click();
+        }
+
+        public void openAddUrlPage()
+        {
+            LinkAddUrl.Click();
         }
     }
 }

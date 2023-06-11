@@ -36,7 +36,7 @@ namespace SeleniumTests.Tests
         public void Test_CheckShortUrlCounterIncrease()
         {
             int oldCounter = int.Parse(page.getTableFirstRowLastCellText());
-            page.clickTableFirstRowSecondCell();
+            page.clickTableFirstRowSecondCellLink();
             page.switchToFirstTab();
             page.refreshPage();
 

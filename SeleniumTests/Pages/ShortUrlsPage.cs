@@ -14,8 +14,9 @@ namespace SeleniumTests.Pages
         public IWebElement TableShortUrls => driver.FindElement(By.ClassName("urls"));
         public IWebElement TopLeftCellLabel => driver.FindElements(By.CssSelector("tr > th"))[0];
         public IWebElement MessageCannotGetUrl => driver.FindElement(By.CssSelector("body > pre"));
-        public IWebElement TableFirstRow => driver.FindElements(By.CssSelector("tbody > tr")).First();
+        public IWebElement TableFirstRow => driver.FindElements(By.CssSelector("table > tbody > tr")).First();
         public IWebElement TableFirstRowSecondCell => TableFirstRow.FindElements(By.CssSelector("td"))[1];
+        public IWebElement TableFirstRowSecondCellLink => TableFirstRowSecondCell.FindElement(By.ClassName("shorturl"));
         public IWebElement TableFirstRowLastCell => TableFirstRow.FindElements(By.CssSelector("td")).Last(); 
 
         public string getTopLeftCellLabel()
@@ -34,9 +35,9 @@ namespace SeleniumTests.Pages
             return MessageCannotGetUrl.Text;
         }
 
-        public void clickTableFirstRowSecondCell()
+        public void clickTableFirstRowSecondCellLink()
         {
-            TableFirstRowSecondCell.Click();
+            TableFirstRowSecondCellLink.Click();
         }
 
         public string getTableFirstRowLastCellText()

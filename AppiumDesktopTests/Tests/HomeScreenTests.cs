@@ -18,7 +18,13 @@ namespace AppiumDesktopTests.Tests
         [Test]
         public void Test_AssertUrlCanBeAdded()
         {
-            Assert.Pass();
+            var urlToAdd = "https://url" + DateTime.Now.Ticks + ".com";
+            screen.setInputUrl(urlToAdd);
+            screen.clickButtonCreate();
+
+            var createdUrl = driver.FindElementByName(urlToAdd);
+            Assert.IsNotEmpty(createdUrl.Text);
+            Assert.That(createdUrl.Text, Is.EqualTo(urlToAdd));
         }
     }
 }

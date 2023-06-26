@@ -16,6 +16,5 @@ namespace SeleniumTests.Pages
         public IWebElement LabelShortUrls => driver.FindElement(By.CssSelector("body > main > ul > li:nth-child(1)"));
         public IWebElement LabelUrlVisitors => driver.FindElement(By.CssSelector("body > main > ul > li:nth-child(2)"));
 
-        
     }
 }

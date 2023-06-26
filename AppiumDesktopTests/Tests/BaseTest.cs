@@ -33,6 +33,5 @@ namespace AppiumDesktopTests.Tests
         {
             this.driver.Quit();
         }
-
     }
 }

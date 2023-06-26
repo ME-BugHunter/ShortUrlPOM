@@ -17,7 +17,6 @@ namespace AppiumDesktopTests.Screens
             this.driver = driver;
         }
        
-
         public void setBaseUrl(string baseUrl)
         {
             inputBaseUrl.Click();
